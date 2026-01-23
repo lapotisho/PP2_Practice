@@ -1,2 +1,10 @@
-list_a = [12,"Hello","World"]
-print(list_a)
+x = list(("apple", "banana", "cherry"))
+y = tuple(("apple", "banana", "cherry"))
+z = dict(name="John", age=36)
+p = set(("apple", "banana", "cherry"))
+a = str("Hello World")
+print(x)
+print(y)
+print(z)
+print(p)
+print(a)
