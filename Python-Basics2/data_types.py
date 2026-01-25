@@ -8,3 +8,9 @@ print(y)
 print(z)
 print(p)
 print(a)
+ur = 1    # int
+ors = 2.8  # float
+lol = 1j   # complex
+print(type(ur))
+print(type(ors))
+print(type(lol))

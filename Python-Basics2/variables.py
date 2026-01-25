@@ -12,3 +12,5 @@ a = "Python"
 b = "is"
 c = "awesome"
 print(x, y, z)
+print(67)
+print("six seven")
