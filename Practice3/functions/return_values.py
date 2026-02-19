@@ -14,3 +14,14 @@ def fib(n): # this is a fibonacci sequence
 n = int(input())
 for x in range(n): 
     print(fib(x),end=" ")
+def even(y):
+    return y % 2 == 0
+
+a = []
+i = 1
+while i <= 100:
+    a.append(i)
+    i += 1
+
+a = list(filter(even,a)) # it will filter all even numbers
+print(a)
