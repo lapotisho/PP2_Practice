@@ -9,7 +9,7 @@ a,b=map(int,input().split())
 sum(a,b)
 a = input("Enter you name: ")
 gmail(a)
-def countdown(n): # this is countdown recursive function
+def countdown(n): # this is a countdown recursive function
     if n == 0: 
         print("time is over")
     else: 
