@@ -3,9 +3,9 @@ b = 1
 print(b in a)
 print("abc")
 x ="abcd"
-print(bool(x))
+print(bool(x)) # it will check whether the element has a value 
 y ={}
-print(bool(y))
+print(bool(y)) # since the value is 0 it will output false
 y = 0
 print(bool(y))
 x = 200
