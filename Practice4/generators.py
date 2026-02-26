@@ -42,3 +42,4 @@ gen = echo_generator()
 next(gen) # Prime the generator
 gen.send("Hello") # The send() method allows you to send a value to the generator
 gen.send("World")
+gen.send(1293)
