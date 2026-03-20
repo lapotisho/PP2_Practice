@@ -1,0 +1,2 @@
+Hello! Welcome to data_for_reading.txt
+This file is for testing purposes.
