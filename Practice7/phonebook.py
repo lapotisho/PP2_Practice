@@ -96,6 +96,14 @@ def delete_contact():
 
     conn.commit()
     conn.close()
+def showall():
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM contacts;")
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
+    conn.close() 
 
 def menu():
     while True:
@@ -104,7 +112,8 @@ def menu():
         print("3. Update contact")
         print("4. Search")
         print("5. Delete")
-        print("6. Exit")
+        print("6. Showall")
+        print("7. Exit")
 
         choice = input("Choose: ")
 
@@ -119,6 +128,8 @@ def menu():
         elif choice == '5':
             delete_contact()
         elif choice == '6':
+            showall()
+        elif choice == '7':
             break
 
 if __name__ == "__main__":
