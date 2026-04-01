@@ -35,7 +35,6 @@ def add_or_update():
         conn.close()
     else: 
         print("The phone number is invalid")
-        return False
 
 def delete():
     value = input("Enter name or phone: ")
