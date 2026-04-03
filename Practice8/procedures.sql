@@ -25,9 +25,14 @@ LANGUAGE plpgsql AS $$
 DECLARE
     i INT;
 BEGIN
+    IF array_length(names,1) != array_length(phones,1)
+       OR array_length(names,1) != array_length(emails,1) THEN
+        RAISE EXCEPTION 'Array lengths mismatch';
+    END IF;
+
     FOR i IN 1..array_length(names, 1) LOOP
         
-        IF phones[i] NOT LIKE '+%' THEN
+        IF phones[i] !~ '^\+77\d{9}$' THEN
             RAISE NOTICE 'Invalid phone: %', phones[i];
         ELSE
             CALL upsert_contact(names[i], phones[i], emails[i]);

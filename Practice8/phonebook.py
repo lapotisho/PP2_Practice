@@ -36,6 +36,40 @@ def add_or_update():
     else: 
         print("The phone number is invalid")
 
+def add_several_contacts():
+    n = int(input("How many contacts?: ")) 
+
+    names = []
+    phones = []
+    emails = []
+
+    for _ in range(n):
+        name = input("Name: ")
+
+        while True:
+            phone = input("Phone: ")
+            if re.fullmatch(pattern, phone):
+                break
+            else:
+                print("Invalid phone, try again")
+
+        email = input("Email: ")
+
+        names.append(name)
+        phones.append(phone)
+        emails.append(email)
+
+    conn = get_connection()
+    cur = conn.cursor()
+
+    cur.execute(
+        "CALL bulk_insert_contacts(%s, %s, %s)",
+        (names, phones, emails)
+    )
+
+    conn.commit()
+    conn.close()
+
 def delete():
     value = input("Enter name or phone: ")
 
@@ -79,10 +113,11 @@ def menu():
     while True:
         print("\n1. Search")
         print("2. Add/Update")
-        print("3. Delete")
-        print("4. Pagination")
-        print("5. Showall")
-        print("6. Exit")
+        print("3. Add Several Contacts")
+        print("4. Delete")
+        print("5. Pagination")
+        print("6. Showall")
+        print("7. Exit")
 
         choice = input("Choose: ")
 
@@ -91,12 +126,14 @@ def menu():
         elif choice == "2":
             add_or_update()
         elif choice == "3":
-            delete()
+            add_several_contacts()
         elif choice == "4":
-            pagination()
+            delete()
         elif choice == "5":
-            showall()
+            pagination()
         elif choice == "6":
+            showall()
+        elif choice == "7":
             break
 
 
