@@ -11,13 +11,13 @@ clock = pygame.time.Clock()
 while not done:
 
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_LEFT]:
+        if keys[pygame.K_a]:
                x1 -= 10
-        if keys[pygame.K_RIGHT]:
+        if keys[pygame.K_d]:
                x1 += 10
-        if keys[pygame.K_UP]:
+        if keys[pygame.K_w]:
                 y1 -= 10
-        if keys[pygame.K_DOWN]:
+        if keys[pygame.K_s]:
                y1 += 10
 
         if x1 + 25 >= WIDTH:
