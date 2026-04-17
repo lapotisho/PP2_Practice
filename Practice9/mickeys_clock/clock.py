@@ -44,7 +44,6 @@ class Clock:
         self.font_time  = pygame.font.SysFont("Arial", 36, bold=True)
         self.font_label = pygame.font.SysFont("Arial", 22)
 
-        # Try to load a real image; fall back to drawn hand
         self.minute_hand = self._load_or_draw(hand_image_path, self.MINUTE_COLOR, int(self.radius * 0.75))
         self.second_hand = self._load_or_draw(hand_image_path, self.SECOND_COLOR, int(self.radius * 0.85))
 
@@ -59,11 +58,6 @@ class Clock:
         return create_mickey_hand(length, color)
 
     def _rotate_and_blit(self, surface: pygame.Surface, angle_deg: float):
-        """
-        Rotates `surface` (which points UPWARD at angle=0) by `angle_deg`
-        clockwise, then blits it centred on the clock face.
-        pygame.transform.rotate goes counter-clockwise, so we negate.
-        """
         rotated = pygame.transform.rotate(surface, -angle_deg)
         rect = rotated.get_rect(center=(self.cx, self.cy))
         self.screen.blit(rotated, rect)
@@ -103,10 +97,7 @@ class Clock:
         time_rect = time_surf.get_rect(center=(self.cx, self.cy + self.radius - 45))
         self.screen.blit(time_surf, time_rect)
 
-        min_lbl  = self.font_label.render("Right = Minutes", True, self.MINUTE_COLOR)
-        sec_lbl  = self.font_label.render("Left  = Seconds", True, self.SECOND_COLOR)
-        self.screen.blit(min_lbl, (10, self.height - 55))
-        self.screen.blit(sec_lbl, (10, self.height - 28))
+
 
     def draw(self):
         now     = datetime.datetime.now()
