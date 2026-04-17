@@ -14,6 +14,7 @@ my_font = pygame.font.SysFont(None, 36)
 
 current_track = 0
 musics = ["music/music1.mp3", "music/music2.mp3"]
+names = ["QMIRR - Tiki Tiki","Lil Peep - Nuts"]
 
 track_lengths = []
 for music in musics:
@@ -57,7 +58,7 @@ while not done:
     pos_sec = pos_ms / 1000 if pos_ms != -1 else 0
     total_sec = track_lengths[current_track]
 
-    cur = my_font.render(f"Current Track: {musics[current_track]}", True, (0, 0, 0))
+    cur = my_font.render(f"Current Track: {names[current_track]}", True, (0, 0, 0))
     time_text = my_font.render(
         f"Time: {int(pos_sec)}s / {int(total_sec)}s", True, (0, 0, 0)
     )
