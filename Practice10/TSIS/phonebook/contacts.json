@@ -1,0 +1,14 @@
+[
+    {
+        "username": "Baitas",
+        "email": "baitas@gmail.com",
+        "birthday": "2007-02-27",
+        "group": "Family",
+        "phones": [
+            {
+                "phone": "+77028619613",
+                "type": "mobile"
+            }
+        ]
+    }
+]
